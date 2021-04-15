@@ -84,7 +84,7 @@ def train(opt):
             # print statistics
             running_loss += loss.item()
             total_loss += loss.item()
-            if i % 10 == 0:    # print every 2000 mini-batches
+            if i % 10 == 0:   
                 wandb_logger.log({"loss": running_loss})
                 print('[%d, %5d] loss: %.3f' %
                     (epoch + 1, i + 1, running_loss / 10))
@@ -92,6 +92,7 @@ def train(opt):
         if total_loss < min_loss:
             min_loss = total_loss
         
+        # Log Loss and checkpoint artifacts
         wandb_logger.log({"total_loss": total_loss})
         if (epoch+1) % opt.log_period == 0:
             save_checkpoint(net, optimizer, latest_model_path)
