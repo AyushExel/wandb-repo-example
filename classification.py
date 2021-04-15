@@ -107,7 +107,7 @@ def train(opt):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset', type=str, default="flower", help='dataset path')
+    parser.add_argument('--dataset', type=str, default="flower_dataset", help='dataset path')
     parser.add_argument('--epochs', type=int, default=5, help='total training epochs')
     parser.add_argument('--log_dataset', action='store_true', help='Log dataset as artifact')
     parser.add_argument('--log_period', type=int, default=5, help='set the checkpoint log period')
